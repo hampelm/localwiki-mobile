@@ -1,0 +1,126 @@
+/* Setup ...................................................................*/
+
+@font-face {
+    font-family: Cabin;
+    src: url(Cabin-Medium-TTF.ttf);
+}
+
+html,
+body {
+    height:100%;
+    font-size:12px;
+    width:100%;
+}
+
+html {
+    display:table;
+}
+
+body {
+  color:#444;
+    background-color:#fafafa;
+    background-image:url(../img/body-bg.png);
+    display:table-cell;
+    font-family:Cabin;
+}
+
+/* Structure ...............................................................*/
+
+.app {
+    margin:0px auto;  
+}
+
+header, section {
+  padding:6px;
+}
+
+#container {
+  font-size:1.5em;
+  
+}
+
+/* Basic styles / type .....................................................*/
+
+h1 {
+    font-size:2em;
+    font-weight:300;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight:normal;
+}
+
+a {
+  color: #4e58b5;
+}
+
+
+/* Header ..................................................................*/
+
+header {
+  padding:6px;
+  background:#9fb69e;
+  color:#fafafa;
+  text-transform:uppercase;
+  font-weight:bold;
+  font-size:12px;
+}
+
+header h1 {
+  
+}
+
+/* Map .....................................................................*/
+
+.map-container {
+  padding:10px;
+  margin:10px;
+  border:1px sold #ddd;
+  
+}
+
+.map {
+  height:180px;
+}
+
+
+
+/* Animations ..............................................................*/
+
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+
+.image_frame,
+.hide {
+    display:none;
+}
+
+/* portrait */
+/* @media screen and (max-aspect-ratio: 1/1) */
+.app {
+}
+
+/* lanscape (when wide enough) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:445px) {
+    .app {
+    }
+}
