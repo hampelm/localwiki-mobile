@@ -17,11 +17,11 @@ html {
 }
 
 body {
-  color:#444;
+    color:#444;
     background-color:#fafafa;
     background-image:url(../img/body-bg.png);
     display:table-cell;
-    font-family:Cabin;
+    font: 16px/25px "Cabin", Arial, "Helvetica Neue", "Helvetica", sans-serif;
 }
 
 /* Structure ...............................................................*/
@@ -35,23 +35,21 @@ header, section {
 }
 
 #container {
-  font-size:1.5em;
-  
 }
 
 /* Basic styles / type .....................................................*/
 
 h1 {
-    font-size:2em;
-    font-weight:300;
-    margin:0px;
-    overflow:visible;
-    padding:0px;
-    text-align:center;
+  margin:0px;
+  overflow:visible;
+  padding:0px;
+  text-align:center;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight:normal;
+  margin:0;
+  padding:0;
 }
 
 a {
@@ -62,31 +60,95 @@ a {
 /* Header ..................................................................*/
 
 header {
-  padding:6px;
   background:#9fb69e;
   color:#fafafa;
   text-transform:uppercase;
   font-weight:bold;
-  font-size:12px;
 }
 
 header h1 {
-  
+  font-size:16px;
+  font-weight:bold;
+}
+
+header h1 a {
+  color:#fff;
+  text-decoration:none;
+}
+
+header .button {
+  float:left;
+  padding:2px;
+  background:#eee;
+}
+
+/* Home ....................................................................*/
+.near-me {
+  margin:10px;
+}
+
+/* Search ..................................................................*/
+.search {
+  margin:10px;
+}
+
+.search input { 
+  width:75%;
+  display:block;
+  margin:0px auto;
+  padding:5px;
+  border-radius:10px;
+  font-size:16px;
+}
+
+/* Page ....................................................................*/
+.page {
+  margin:10px;
+  padding:10px;
+  background:#fefefe;
+  border-radius:10px;
+  border:1px solid #ddd;
+}
+
+.page p, 
+.page li {
+}
+
+.page-list {
+  margin:10px;
+  background:#fefefe;
+  border-radius:10px;
+  border:1px solid #ddd;
+}
+
+.page-list .page {
+  border:none;
+  margin:0;
+  padding:0;
+}
+
+.page-list .page a {
+  display:block;
+  padding:15px 10px;
+  text-decoration:none;
+  border-bottom:1px solid #ddd;
+}
+
+.page-list .page:last-child a {
+  border-bottom:0;
 }
 
 /* Map .....................................................................*/
 
-.map-container {
-  padding:10px;
-  margin:10px;
-  border:1px sold #ddd;
-  
+#map-container {
+  display:none;
+  padding:3px;
+  border:1px solid #ddd;
 }
 
 .map {
   height:180px;
 }
-
 
 
 /* Animations ..............................................................*/

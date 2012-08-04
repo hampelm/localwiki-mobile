@@ -12,7 +12,7 @@
 <body>
     <div class="app">
       <header>
-        <h1>DetroitWiki</h1>
+        <h1><a href="index.html">DetroitWiki</a></h1>
       </header>
       
       <div id="container"></div>          
@@ -20,7 +20,7 @@
     
     <!-- Core scripts  ================================================-->
     <script type="text/javascript" src="js/lib/jquery-1.7.1.js"></script>
-    <script type="text/javascript" src="cordova-2.0.0.js"></script>
+    <script type="text/javascript" src="js/lib/cordova-2.0.0.js"></script>
     <script type="text/javascript" src="js/lib/underscore.js"></script>
     <script type="text/javascript" src="js/lib/backbone.js"></script>
     <script type="text/javascript" src="js/lib/leaflet/leaflet.js"></script>
@@ -28,8 +28,17 @@
     <script type="text/javascript" src="js/index.js"></script>
     
     <!-- Templates ========================================================-->
-    <!-- Home .............................................................-->
+    <!-- Home .............................................................-->    
     <script type="text/template" id="home">
+      <div class="search">
+        <input type="text" placeholder="Search" class="input-search">
+      </div>
+      
+      <div class="near-me">
+        <h2>Things near me</h2>
+        <div id="near-me-map"></div>
+      </div>
+    
       <div class="page-list">
         <% _.each(pages, function(page) { %>
           <div class="page list-elt">

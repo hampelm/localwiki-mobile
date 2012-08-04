@@ -23,6 +23,7 @@ LW.views.MapView = Backbone.View.extend({
     };
     console.log(context);
     this.$el.html(_.template($('#map-view').html(), context));
+    $('#map-container').show();
     
     // Create the map
     this.leaflet = L.map(this.id).setView([42.343422,-83.06488], 13);
@@ -32,6 +33,7 @@ LW.views.MapView = Backbone.View.extend({
     }).addTo(this.leaflet);
     var featureLayer = L.geoJson(this.map.get("geom")).addTo(this.leaflet);
     this.leaflet.fitBounds(featureLayer.getBounds());
+    
   }
   
 });
