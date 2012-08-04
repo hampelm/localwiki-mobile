@@ -37,11 +37,32 @@ LW.views.PageView = Backbone.View.extend({
     // Render the map
     if(this.page.get('map')){
       this.map();
+    };  
+  }  
+});
+
+
+LW.views.PageListView = Backbone.View.extend({
+    
+  initialize: function(options) {
+    console.log("Initialize page list view");
+    _.bindAll(this, 'render');
+    
+    this.el = $(options.el);
+    
+    this.pages = new LW.collections.Pages(options.query || {});
+    this.pages.on('reset', this.render);
+  },
+  
+  render: function() {  
+    console.log("Rendering page list view");
+    var context = { 
+      pages: this.pages.toJSON()
     };
     
-    
+    this.$el.html(_.template($('#page-list-view').html(), context));    
   }
   
-  
 });
+
 

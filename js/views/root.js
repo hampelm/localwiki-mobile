@@ -56,7 +56,6 @@ LW.views.Root = Backbone.View.extend({
   
   goto_home: function() {
     this.currentContentView = this.getOrCreateView("Home");
-    this.currentContentView.render();
     this._router.navigate("");
   },
   

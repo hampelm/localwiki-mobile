@@ -6,6 +6,7 @@ LW.views.MapView = Backbone.View.extend({
 
     this.el = $(options.el);
     
+    console.log(options.url);
     this.map = new LW.models.Map({url: options.url + '?format=json'});
     this.map.fetch();
     

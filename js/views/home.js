@@ -4,8 +4,7 @@ LW.views.Home = Backbone.View.extend({
   
   initialize: function(options) {
     _.bindAll(this, 'render', 'map', 'onGeolocateSuccess', 'onGeolocateError');
-    this.pages = new LW.collections.Pages();
-    this.pages.on('reset', this.render);
+    this.render();
   },
   
   map: function(url) {
@@ -36,15 +35,24 @@ LW.views.Home = Backbone.View.extend({
   
   render: function(e) {  
     console.log("Rendering home");
-    var context = { 
-      pages: this.pages.toJSON()
-    };
+    var context = { };
     
     this.$el.html(_.template($('#home').html(), context));    
     
+    // Get list of pages
+    this.pagesListView = new LW.views.PageListView({
+      'el': '#home-page-list'
+    });
+    
+    this.searchView = new LW.views.SearchView();
+    
+    // this.pages = new LW.collections.Pages();
+    // this.pages.on('reset', this.render);
+    
+    
     // Get pages nearby.
     // Provided by Cordova
-    navigator.geolocation.getCurrentPosition(this.onGeolocateSuccess, this.onGeolocateError);
+    // navigator.geolocation.getCurrentPosition(this.onGeolocateSuccess, this.onGeolocateError);
     
   }
   

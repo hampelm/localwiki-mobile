@@ -88,11 +88,11 @@ header .button {
 }
 
 /* Search ..................................................................*/
-.search {
+#search {
   margin:10px;
 }
 
-.search input { 
+#search input { 
   width:75%;
   display:block;
   margin:0px auto;
