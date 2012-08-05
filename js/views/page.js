@@ -46,12 +46,15 @@ LW.views.PageListView = Backbone.View.extend({
     
   initialize: function(options) {
     console.log("Initialize page list view");
-    _.bindAll(this, 'render');
-    
-    this.el = $(options.el);
-    
-    this.pages = new LW.collections.Pages(options.query || {});
+    _.bindAll(this, 'render', 'update');
+        
+    this.pages = new LW.collections.Pages();
     this.pages.on('reset', this.render);
+    this.pages.on('change', this.render);
+  },
+  
+  update: function(query) {
+    this.pages.query(query);
   },
   
   render: function() {  

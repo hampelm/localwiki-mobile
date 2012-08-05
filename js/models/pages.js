@@ -16,7 +16,16 @@ LW.collections.Pages = Backbone.Collection.extend({
   url: LW.API + "/api/page/?format=json", 
   
   initialize: function(options) {  
-    _.bindAll(this, 'parse');
+    _.bindAll(this, 'parse', 'query');
+  },
+  
+  search_url: function(term) {
+    return LW.API + '/api/page/search/?q=' + term + '&format=json';
+  },
+  
+  query: function(query) {
+    this.url = this.search_url(query.term);
+    console.log(this.url);
     this.fetch();
   },
   

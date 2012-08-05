@@ -38,18 +38,9 @@ LW.views.Home = Backbone.View.extend({
     var context = { };
     
     this.$el.html(_.template($('#home').html(), context));    
-    
-    // Get list of pages
-    this.pagesListView = new LW.views.PageListView({
-      'el': '#home-page-list'
-    });
-    
-    this.searchView = new LW.views.SearchView();
-    
-    // this.pages = new LW.collections.Pages();
-    // this.pages.on('reset', this.render);
-    
-    
+        
+    this.searchView = new LW.views.SearchView({el: $("#search")});
+        
     // Get pages nearby.
     // Provided by Cordova
     // navigator.geolocation.getCurrentPosition(this.onGeolocateSuccess, this.onGeolocateError);
