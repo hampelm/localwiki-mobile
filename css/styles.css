@@ -102,16 +102,22 @@ header .button {
 }
 
 /* Page ....................................................................*/
-.page {
-  margin:10px;
-  padding:10px;
-  background:#fefefe;
-  border-radius:10px;
-  border:1px solid #ddd;
+h2.page-header {
+  text-align:center;
+  margin-top:12px;
+  font-weight:bold;
 }
 
 .page p, 
 .page li {
+}
+
+#page-content {
+  margin:10px;
+  padding:1px 10px;
+  background:#fefefe;
+  border-radius:10px;
+  border:1px solid #ddd;
 }
 
 .page-list {
@@ -142,8 +148,11 @@ header .button {
 
 #map-container {
   display:none;
-  padding:3px;
+  margin-top:12px;
+  padding:1px;
   border:1px solid #ddd;
+  border-right:0;
+  border-left:0;
 }
 
 .map {
