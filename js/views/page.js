@@ -14,9 +14,10 @@ LW.views.PageView = Backbone.View.extend({
   
   map: function() {
     this.mapView = new LW.views.MapView({
-      url: this.page.get('map'),
       el: '#map-container'
     });
+    this.mapView.addLayer(this.page.get('map'));
+    
   },
   
   render: function() {  

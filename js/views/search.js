@@ -18,10 +18,7 @@ LW.views.SearchView = Backbone.View.extend({
     var term = $('#search-input').attr('value');
     console.log(term);
     
-    if (term.length > 2) {
-      this.resultsListView.update({term: term});
-      console.log(this.resultsListView);
-    };
+    this.resultsListView.update({term: term});
   },
   
   render: function() {  

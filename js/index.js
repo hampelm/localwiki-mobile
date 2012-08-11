@@ -1,13 +1,13 @@
 var LW = {};
 LW.API = 'http://detroitwiki.org'; 
-//LW.API = 'http://127.0.0.1:8000';
+LW.API = 'http://127.0.0.1:8000';
 
 LW.collections = {};
 LW.models = {};
 LW.views = {};
 LW.routers = {};
 LW.templates = {};
-
+LW.geo = {};
 
 var app = {
     initialize: function() {
