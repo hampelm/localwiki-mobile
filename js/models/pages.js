@@ -1,11 +1,11 @@
 LW.models.Page = Backbone.Model.extend({
   
   initialize: function(options) {
-    this.slug = options.slug;
+    this.path = options.path;
   },
   
   url: function() {
-    return LW.API + '/api/page/' + this.slug + '?format=json';
+    return LW.API + this.path + '?format=json';
   }
 
 });
@@ -51,5 +51,5 @@ LW.collections.Pages = Backbone.Collection.extend({
     console.log(response);
     return response.objects;
   }
-  
+    
 });

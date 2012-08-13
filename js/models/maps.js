@@ -12,7 +12,7 @@ LW.collections.Maps = Backbone.Collection.extend({
   url: LW.API + "/api/map/?format=json", 
   
   initialize: function(options) {  
-    _.bindAll(this, 'parse', 'queryNear', 'getPages');
+    _.bindAll(this, 'parse', 'queryNear', 'getPageURLs');
   },
       
   queryNear: function(bounds) {
@@ -48,16 +48,17 @@ LW.collections.Maps = Backbone.Collection.extend({
     return response.objects;
   },
   
-  getPages: function() {
+  // Return the URLs of the pages on the map so we can link to them. 
+  getPageURLs: function() {
     console.log("Getting pages on a map");
-    console.log(this);
     if(this.models.length > 0){
-      var pages = new LW.collections.Pages();
-      console.log(this.models);
-      this.models.each(function(map){
-        console.log(map);
+      pageURLs = [];
+      _.each(this.models, function(elt) {
+        pageURLs.push(elt.get("page"));
       });
+      return pageURLs;
     }
+    return [];
   }
   
 });

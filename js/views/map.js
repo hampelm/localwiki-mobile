@@ -2,7 +2,7 @@ LW.views.MapView = Backbone.View.extend({
   
   initialize: function(options) {
     console.log("Initialize map view");
-    _.bindAll(this, 'render', 'renderLayer', 'addLayer', 'pagesNear', 'mapInBoundsURL', 'getMapPages');
+    _.bindAll(this, 'render', 'renderLayer', 'addLayer', 'pagesNear', 'findMapsInBounds', 'getMapPages');
     
     this.maps = new LW.collections.Maps();
     this.render();
@@ -11,12 +11,11 @@ LW.views.MapView = Backbone.View.extend({
   render: function() {  
     console.log("Rendering the map");
     
-    // Generate a unique ID for rendering the map
+    // Generate a unique ID for the map
     this.id = _.uniqueId('map_');
     
-    var context = { 
-      id: this.id
-    };
+    // Render the map template
+    var context = { id: this.id };
     this.$el.html(_.template($('#map-view').html(), context));
     $('#map-container').show();
     
@@ -41,11 +40,11 @@ LW.views.MapView = Backbone.View.extend({
   
   pagesNear: function() {
     // Get pages nearby.
-    navigator.geolocation.getCurrentPosition(this.mapInBoundsURL, this.onGeolocateError);
+    navigator.geolocation.getCurrentPosition(this.findMapsInBounds, this.onGeolocateError);
   },
   
-  // Find locations nearby
-  mapInBoundsURL: function(position) {
+  // Find locations near the user
+  findMapsInBounds: function(position) {
     // Focus the map on the current location
     var latlng = new L.LatLng(position.coords.latitude, position.coords.longitude);
     this.leafletMap.setView(latlng, 12);
@@ -55,12 +54,16 @@ LW.views.MapView = Backbone.View.extend({
     this.maps.on('reset', this.getMapPages);
   },
   
+  // Get a list of those pages
   getMapPages: function(event) {
-    this.maps.getPages();
+    var pageURLs = this.maps.getPageURLs();
+    this.pages = new LW.collections.Pages();
+    this.pageListView = new LW.views.PageListView({el: $("#map-list")});
+    this.pageListView.addFromURLs(pageURLs);
   },
   
   onGeolocateError: function(error) {
-      console.log('code: '    + error.code    + '\n' + 'message: ' + error.message + '\n');
+      console.log('Geolocation error / code: '    + error.code    + '\n' + 'message: ' + error.message + '\n');
   }
     
   
